@@ -11,6 +11,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 
     createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
         const dbConfig = this.configService.get('db');
+        
         return {
             type: dbConfig.type,
             host: dbConfig.host,

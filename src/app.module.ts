@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { MemberModule } from './member/member.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import configuration from './config/configuration';
 import { validate } from './env.validation';
 import configurationYaml from './config/configuration-yaml';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -35,7 +34,7 @@ export const jwtConstants = {
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
     }),
-    MemberModule
+    MemberModule,
   ],
   controllers: [AppController],
   providers: [AppService, 
