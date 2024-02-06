@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, PrimaryGeneratedColumn, Unique } from "typeorm";
+import { Role } from "./role.entity";
 
 @Entity()
 @Unique(['id'])
@@ -17,6 +18,10 @@ export class User{
 
     @Column()
     email: string;
+
+    @ManyToMany(() => Role,(role) => role.roleId, {eager: true})
+    @JoinTable()
+    role: Role[];
 
     // @Column()
     // lastLogin: Date;
